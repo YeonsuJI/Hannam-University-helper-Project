@@ -21,7 +21,7 @@ const Bottombar = () => {
   const pressHome = () => navigation.navigate('Homepage');
   const [selectedView, setSelectedView] = useState('a');
   const bottomSheetRef = useRef(null);
-  const snapPoints = useMemo(() => ['20%', '50%', '90%'], []);
+  const snapPoints = useMemo(() => ['25%', '50%', '90%'], []);
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
 
   const renderContent = () => {
@@ -59,6 +59,7 @@ const Bottombar = () => {
           snapPoints={snapPoints}
           onChange={handleSheetChanges}
           statusBarTranslucent
+          enableContentPanningGesture={!isBottomSheetOpen} // 바텀시트 내부 터치 이벤트 비활성화
         >
           <View style={styles.contentContainer}>
             {renderContent()}
