@@ -21,7 +21,7 @@ const Bottombar = () => {
   const pressHome = () => navigation.navigate('Homepage');
   const [selectedView, setSelectedView] = useState('a');
   const bottomSheetRef = useRef(null);
-  const snapPoints = useMemo(() => ['15%', '50%', '90%'], []);
+  const snapPoints = useMemo(() => ['20%', '50%', '90%'], []);
   const [isBottomSheetOpen, setIsBottomSheetOpen] = useState(false);
 
   const renderContent = () => {
