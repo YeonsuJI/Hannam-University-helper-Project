@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import {
   View,
   Image,
@@ -8,8 +8,8 @@ import {
   Text,
   Dimensions,
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
-import floors from './engineeringFloor';  // engineeringFloor.js 파일 참조
+import {useNavigation} from '@react-navigation/native';
+import floors from './engineeringFloor'; // engineeringFloor.js 파일 참조
 
 const NinthFloorScreen = () => {
   const navigation = useNavigation();
@@ -27,7 +27,11 @@ const NinthFloorScreen = () => {
       {
         text: '길 안내를 시작하시겠습니까?',
         onPress: () => {
-          navigation.navigate('Gil', { roomId: room, startFloor: '7F', goalFloor: '7F' }); // startFloor와 goalFloor 전달
+          navigation.navigate('Gil', {
+            roomId: room,
+            startFloor: '7F',
+            goalFloor: '7F',
+          }); // startFloor와 goalFloor 전달
         },
       },
       {
@@ -46,10 +50,9 @@ const NinthFloorScreen = () => {
         return (
           <TouchableOpacity
             key={roomId}
-            style={[styles.button, { top: `${room.y}%`, left: `${room.x}%` }]}
-            onPress={() => showInfoAlert(roomId)}
-          >
-            <Text style={[styles.buttonText, { fontSize: 8 }]}>{roomId}</Text>
+            style={[styles.button, {top: `${room.y}%`, left: `${room.x}%`}]}
+            onPress={() => showInfoAlert(roomId)}>
+            <Text style={[styles.buttonText, {fontSize: 8}]}>{roomId}</Text>
           </TouchableOpacity>
         );
       })}

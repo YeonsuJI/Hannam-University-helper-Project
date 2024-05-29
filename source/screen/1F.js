@@ -6,7 +6,13 @@ import {
   TouchableOpacity,
   StyleSheet,
   Alert,
+  Dimensions,
 } from 'react-native';
+
+import Bottombar2 from '../component/bottomBar2'; //하단 버튼 바
+
+const windowWidth = Dimensions.get('window').width;
+const windowHeight = Dimensions.get('window').height;
 
 const FirstFloorScreen = ({navigation}) => {
   const showInfoAlert = room => {
@@ -41,13 +47,15 @@ const FirstFloorScreen = ({navigation}) => {
         onPress={() => showInfoAlert('090817')}>
         <Text style={styles.buttonText}>090817</Text>
       </TouchableOpacity>
+      <Bottombar2 />
     </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    width: windowWidth,
+    height: windowHeight,
     justifyContent: 'center',
     alignItems: 'center',
   },

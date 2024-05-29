@@ -8,6 +8,7 @@ import {
   Dimensions,
 } from 'react-native';
 import {SafeAreaProvider, SafeAreaView} from 'react-native-safe-area-context';
+import {GestureHandlerRootView} from 'react-native-gesture-handler';
 
 import Bottombar from '../component/bottomBar'; //하단 버튼 바
 
@@ -18,27 +19,30 @@ const Building56 = ({navigation}) => {
   return (
     <SafeAreaProvider>
       <SafeAreaView style={style.container}>
-        <ScrollView
-          style={style.outerContainer}
-          contentContainerStyle={style.innerContainer}>
-          <TouchableOpacity style={style.floor}>
-            <View style={style.floorNumber}>
-              <Text style={style.numberText}>1F</Text>
-            </View>
-            <View style={style.floorInfo}>
-              <Text style={style.infoText}>?</Text>
-            </View>
-          </TouchableOpacity>
-          <TouchableOpacity style={style.floor}>
-            <View style={style.floorNumber}>
-              <Text style={style.numberText}>2F</Text>
-            </View>
-            <View style={style.floorInfo}>
-              <Text style={style.infoText}>??</Text>
-            </View>
-          </TouchableOpacity>
-        </ScrollView>
-        <Bottombar n={navigation} />
+        <GestureHandlerRootView>
+          <ScrollView
+            style={style.outerContainer}
+            contentContainerStyle={style.innerContainer}
+          >
+            <TouchableOpacity style={style.floor}>
+              <View style={style.floorNumber}>
+                <Text style={style.numberText}>1F</Text>
+              </View>
+              <View style={style.floorInfo}>
+                <Text style={style.infoText}>?</Text>
+              </View>
+            </TouchableOpacity>
+            <TouchableOpacity style={style.floor}>
+              <View style={style.floorNumber}>
+                <Text style={style.numberText}>2F</Text>
+              </View>
+              <View style={style.floorInfo}>
+                <Text style={style.infoText}>??</Text>
+              </View>
+            </TouchableOpacity>
+          </ScrollView>
+        <Bottombar />
+        </GestureHandlerRootView>
       </SafeAreaView>
     </SafeAreaProvider>
   );
@@ -50,11 +54,11 @@ const style = StyleSheet.create({
   container: {
     width: windowWidth,
     height: windowHeight,
-    justifyContent: 'space-between',
   },
   outerContainer: {
     flex: 1,
     backgroundColor: '#ffffff',
+    marginBottom: 40,
   },
   innerContainer: {
     flexDirection: 'column',
